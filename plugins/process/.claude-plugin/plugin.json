@@ -1,0 +1,14 @@
+{
+  "name": "process",
+  "description": "Skills about how to work: choosing and reassessing a way of working, planning, and method. Anchored on the Disciplined Agile toolkit.",
+  "version": "0.1.0",
+  "author": {
+    "name": "RhysWheater"
+  },
+  "keywords": [
+    "process",
+    "disciplined-agile",
+    "ways-of-working",
+    "method"
+  ]
+}

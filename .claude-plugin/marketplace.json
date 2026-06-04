@@ -1,0 +1,13 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "RhysWheater"
+  },
+  "description": "Rhys Wheater's personal skill marketplace, grouped into plugins by theme.",
+  "plugins": [
+    {
+      "name": "process",
+      "source": "./plugins/process"
+    }
+  ]
+}
