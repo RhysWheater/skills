@@ -92,8 +92,18 @@ Only offer to record a decision in `decisions.org` when all three are true:
 
 If any of the three is missing, skip it. Use the format in [references/DECISIONS-FORMAT.md](references/DECISIONS-FORMAT.md): a new headline with a `PROPOSED`/`ACCEPTED` TODO state, an `:ID:`, a `:DATE:` property, and context/topic tags.
 
+### Emit open questions as TODO
+
+When the grill surfaces an unresolved question, blocker, or follow-up investigation, emit it immediately as a `* TODO` headline in `decisions.org` with:
+- `:ID:` prefixed `q-` (not `dec-`) — e.g. `q-prod-access`
+- `:DATE:` of today
+- Topic tags including `open-question`
+- `[[id:]]` link to the related decision
+
+These are work items, not decisions. They resolve to `DONE` (not `ACCEPTED`). Only promote to a `PROPOSED` decision if the question crystallises into a genuine architectural trade-off meeting the three-bar test.
+
 ### Agenda note
 
-These files are designed to drop into `org-agenda` — open decisions (`PROPOSED`) and unresolved glossary `TODO`s show up as actionable items. The first time you create one of these files in a repo, remind the user they may need to add it to `org-agenda-files` once (e.g. `(add-to-list 'org-agenda-files "decisions.org")`) for agenda integration to work.
+These files are designed for the project-local agenda (`SPC p a` or equivalent). `TODO` and `PROPOSED` headlines (left of `|`) appear as actionable items; `DONE`/`ACCEPTED`/`SUPERSEDED`/`REJECTED` are resolved and hidden. If your setup doesn't auto-discover repo org files, add them to `org-agenda-files`.
 
 </supporting-info>

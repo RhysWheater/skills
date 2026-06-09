@@ -13,8 +13,10 @@ A markdown `docs/adr/0001-*.md` directory is just a pile of prose — you cannot
 #+TITLE: Decisions
 #+CATEGORY: {context}
 #+FILETAGS: :decision:
-# Decision lifecycle: cycle with C-c C-t. Left of | = open, right = closed.
-#+TODO: PROPOSED ACCEPTED | DEPRECATED SUPERSEDED
+# Keywords: left of | = open (visible in agenda), right = resolved (hidden).
+# TODO = open work (questions, blockers, investigations). PROPOSED = decision under consideration.
+# DONE = work completed. ACCEPTED = decision settled. SUPERSEDED/REJECTED = decision closed.
+#+TODO: TODO(t) PROPOSED(p) | DONE(d) ACCEPTED(a) SUPERSEDED(s) REJECTED(r)
 # Column view: put cursor on a headline and press C-c C-x C-c for the table; q to exit.
 #+COLUMNS: %38ITEM(Decision) %TODO(Status) %DATE %TAGS
 #+STARTUP: showall
@@ -38,7 +40,10 @@ The body is **1–3 sentences**: context, decision, and why. A decision can be a
 
 ## Fields
 
-- **TODO state** — `PROPOSED` when first raised, `ACCEPTED` once settled; later `DEPRECATED` or `SUPERSEDED`. This is live data: `PROPOSED` decisions show up in the agenda as open questions.
+- **TODO state** — Two kinds of headline share this file:
+  - *Decisions:* `PROPOSED` when first raised, `ACCEPTED` once settled, `SUPERSEDED` if replaced, `REJECTED` if shot down.
+  - *Work items* (open questions, blockers, follow-up investigations spawned by decisions): `TODO` when open, `DONE` when resolved. Use `:ID:` prefix `q-` (not `dec-`) and link to the related decision.
+  Only `TODO` and `PROPOSED` (left of `|`) appear in the project agenda — everything else is resolved and hidden.
 - **`:ID:`** — stable, human-readable (`dec-<slug>`). Lets other decisions and glossary terms link to it.
 - **`:DATE:`** — inactive timestamp `[YYYY-MM-DD]` of when the decision was made (inactive so it doesn't act as an agenda deadline).
 - **Tags** — owning context (`:ordering:`) and topic (`:arch:`, `:integration:`, `:data:`). `:decision:` comes free from `#+FILETAGS:`.
