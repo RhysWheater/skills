@@ -8,6 +8,10 @@
     {
       "name": "process",
       "source": "./plugins/process"
+    },
+    {
+      "name": "gtd",
+      "source": "./plugins/gtd"
     }
   ]
 }
