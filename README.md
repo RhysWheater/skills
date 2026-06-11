@@ -9,16 +9,26 @@ Rhys Wheater's personal [Claude Code](https://code.claude.com) plugin **marketpl
 /plugin install process@skills
 ```
 
-## Update after pushing changes
+## Update after changing skills
 
-The plugin system caches from the remote repo. After pushing new/changed skills:
+The plugin system caches by version number. Adding or changing skills without bumping the version means Claude Code keeps serving the stale cache. Run this after any change:
+
+```bash
+./scripts/bump-and-publish.sh        # default: patch bump
+./scripts/bump-and-publish.sh minor  # for new skills
+./scripts/bump-and-publish.sh major  # for breaking changes
+```
+
+This bumps every `plugin.json` version, nukes the local cache (`~/.claude/plugins/cache/skills/`), commits, and pushes. Start a new Claude Code session afterwards.
+
+### Manual alternative (not recommended)
 
 ```
 /plugin marketplace update skills
 /plugin update process@skills
 ```
 
-If `update` doesn't pick up new skills (e.g. the plugin was already at the "latest version"), force a reinstall:
+If that still doesn't work, force reinstall:
 
 ```
 /plugin uninstall process@skills
@@ -48,6 +58,8 @@ Skills for operating a personal, ADHD-aware org-mode GTD kanban board. Run from 
 skills/
 ├── .claude-plugin/
 │   └── marketplace.json        # marketplace manifest
+├── scripts/
+│   └── bump-and-publish.sh     # version bump + cache clear + push
 └── plugins/
     ├── process/
     │   ├── .claude-plugin/
