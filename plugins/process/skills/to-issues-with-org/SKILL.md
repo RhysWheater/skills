@@ -40,6 +40,16 @@ Slices are tagged `:hitl:` or `:afk:`:
 - `:afk:` — can be implemented and merged without human interaction. Prefer this.
 - `:hitl:` — requires a human decision, design review, or access grant.
 
+For each `:afk:` slice, estimate:
+- **Model tier** (`opus`, `sonnet`, `haiku`, `fable`) — the cheapest tier that can reliably complete the task.
+- **Token budget** — a Fibonacci bucket: `8k | 13k | 21k | 34k | 55k | 89k | 144k | 233k`. This is a hard ceiling — the executing agent MUST stop immediately upon hitting it.
+
+Estimation guidance:
+- Use your own judgment of task complexity. No formula — you know the model capabilities.
+- Pick the smallest Fibonacci bucket that comfortably contains the work (it's a ceiling, not a target).
+- If a task would need `233k+`, it's too uncertain to estimate. Apply SPIDR (Spike, Path, Interface, Data, Rule) to decompose it into smaller slices until each fits a bucket.
+- Simpler tasks are easier to estimate accurately. Prefer many small, tightly-budgeted slices over few large loosely-budgeted ones.
+
 Rules:
 - Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests).
 - A completed slice is demoable or verifiable on its own.
@@ -51,6 +61,7 @@ Present the proposed breakdown as a numbered list. For each slice, show:
 
 - **Title**: short descriptive name
 - **Type**: `:hitl:` / `:afk:`
+- **Model / Budget** (`:afk:` only): e.g. `sonnet / 55k`
 - **Blocked by**: which other slices (if any) must complete first
 - **User stories covered**: which user stories this addresses (if the source material has them)
 
@@ -60,6 +71,7 @@ Ask the user:
 - Are the dependency relationships correct?
 - Should any slices be merged or split further?
 - Are the correct slices marked as `:hitl:` and `:afk:`?
+- Do the model/budget estimates feel right for the `:afk:` tasks?
 
 Iterate until the user approves the breakdown.
 

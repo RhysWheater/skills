@@ -16,7 +16,7 @@ Same reasoning as decisions.org and prd.org — one file lets column view aggreg
 # Keywords: left of | = active (visible in agenda), right = resolved (hidden).
 #+TODO: TODO(t) IN-PROGRESS(i) | DONE(d) CANCELLED(c)
 # Column view: C-c C-x C-c on a headline for the table; q to exit.
-#+COLUMNS: %40ITEM(Task) %TODO(Status) %TAGS %BLOCKED(Blocked by)
+#+COLUMNS: %40ITEM(Task) %TODO(Status) %TAGS %MODEL(Model) %BUDGET(Budget) %BLOCKED(Blocked by)
 #+STARTUP: overview
 ```
 
@@ -33,6 +33,8 @@ Same reasoning as decisions.org and prd.org — one file lets column view aggreg
   :ID:       task-setup-event-bus
   :BLOCKED:  
   :PRD:      [[id:prd-order-pipeline]]
+  :MODEL:    sonnet
+  :BUDGET:   55k
   :END:
   Stand up the async event bus between Ordering and downstream consumers.
   Thin vertical slice: schema definition, publish on OrderPlaced, one consumer stub.
@@ -47,6 +49,8 @@ Same reasoning as decisions.org and prd.org — one file lets column view aggreg
 - **`:ID:`** — stable, human-readable, prefixed `task-` (e.g. `task-setup-event-bus`). Lets other tasks reference it in `:BLOCKED:`.
 - **`:BLOCKED:`** — `[[id:task-other]]` link(s) to blocking tasks. Empty string if no blockers. Multiple blockers separated by space: `[[id:task-a]] [[id:task-b]]`.
 - **`:PRD:`** — `[[id:prd-slug]]` link back to the parent PRD in `prd.org`. Omit if the work item came from conversation context rather than a PRD.
+- **`:MODEL:`** — (`:afk:` only) model tier for execution: `opus`, `sonnet`, `haiku`, or `fable`. The cheapest tier that can reliably complete the task.
+- **`:BUDGET:`** — (`:afk:` only) Fibonacci bucket: `8k | 13k | 21k | 34k | 55k | 89k | 144k | 233k`. Hard ceiling — the executing agent MUST stop immediately upon hitting this limit. If a task would need `233k+`, it must be decomposed further.
 - **Tags:**
   - Context: `:ordering:`, `:billing:` — which bounded context this touches.
   - Type: `:afk:` (can be done without human interaction) or `:hitl:` (requires human decision/review). Prefer `:afk:` where possible.
