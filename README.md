@@ -9,6 +9,28 @@ Rhys Wheater's personal [Claude Code](https://code.claude.com) plugin **marketpl
 /plugin install process@skills
 ```
 
+## Add a new plugin
+
+1. Create the plugin directory structure:
+   ```
+   plugins/<name>/
+   ├── .claude-plugin/
+   │   └── plugin.json
+   └── skills/
+       └── <skill-name>/
+           └── SKILL.md
+   ```
+2. Register the plugin in `.claude-plugin/marketplace.json` — add an entry to the `plugins` array:
+   ```json
+   { "name": "<name>", "source": "./plugins/<name>" }
+   ```
+3. Run `./scripts/bump-and-publish.sh major` to bump, clear cache, and push.
+4. In a new Claude Code session:
+   ```
+   /plugin marketplace update skills
+   /plugin install <name>@skills
+   ```
+
 ## Update after changing skills
 
 The plugin system caches by version number. Adding or changing skills without bumping the version means Claude Code keeps serving the stale cache. Run this after any change:
@@ -46,6 +68,12 @@ Skills about *how to work* — way of working, planning, and method. Anchored on
 - **`to-prd-with-org`** (`/process:to-prd-with-org`) — Synthesize conversation context into a structured PRD in `prd.org` with TODO lifecycle (`DRAFT` → `READY` → `DONE`), `id:` links to glossary and decisions, column-view dashboard, and agenda integration.
 - **`to-issues-with-org`** (`/process:to-issues-with-org`) — Break a plan or PRD into independently-grabbable vertical-slice work items in `backlog.org` with TODO states, `id:`-linked dependency graph, `:hitl:`/`:afk:` tags, and a quiz loop before writing.
 
+### `coding-style`
+
+Language-specific coding patterns and idioms that linters cannot enforce — error handling strategies, control flow patterns, API design rules.
+
+- **`python-patterns`** (`/coding-style:python-patterns`) — Extensible ruleset for Python code patterns. Currently covers: signal failure with exceptions (not return values/None).
+
 ### `gtd`
 
 Skills for operating a personal, ADHD-aware org-mode GTD kanban board. Run from within the gtd directory.
@@ -77,6 +105,12 @@ skills/
     │       └── to-issues-with-org/
     │           ├── SKILL.md
     │           └── references/  # org primer + backlog format + decisions format
+    ├── coding-style/
+    │   ├── .claude-plugin/
+    │   │   └── plugin.json      # plugin manifest
+    │   └── skills/
+    │       └── python-patterns/
+    │           └── SKILL.md     # extensible Python pattern rules
     └── gtd/
         ├── .claude-plugin/
         │   └── plugin.json      # plugin manifest
