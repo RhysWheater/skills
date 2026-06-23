@@ -12,6 +12,10 @@
     {
       "name": "gtd",
       "source": "./plugins/gtd"
+    },
+    {
+      "name": "coding-style",
+      "source": "./plugins/coding-style"
     }
   ]
 }
