@@ -1,7 +1,7 @@
 {
   "name": "coding-style",
   "description": "Language-specific coding patterns and idioms. Enforces project conventions that linters cannot catch — error handling strategies, control flow patterns, API design rules.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": {
     "name": "RhysWheater"
   },
