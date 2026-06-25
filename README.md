@@ -73,6 +73,7 @@ Skills about *how to work* — way of working, planning, and method. Anchored on
 Language-specific coding patterns and idioms that linters cannot enforce — error handling strategies, control flow patterns, API design rules.
 
 - **`python-patterns`** (`/coding-style:python-patterns`) — Extensible ruleset for Python code patterns. Currently covers: signal failure with exceptions (not return values/None).
+- **`aws-patterns`** (`/coding-style:aws-patterns`) — Extensible ruleset for AWS infrastructure patterns. Currently covers: CloudWatch dimensions must add information (no redundant environment dimensions in single-env accounts).
 
 ### `gtd`
 
@@ -109,8 +110,10 @@ skills/
     │   ├── .claude-plugin/
     │   │   └── plugin.json      # plugin manifest
     │   └── skills/
-    │       └── python-patterns/
-    │           └── SKILL.md     # extensible Python pattern rules
+    │       ├── python-patterns/
+    │       │   └── SKILL.md     # extensible Python pattern rules
+    │       └── aws-patterns/
+    │           └── SKILL.md     # extensible AWS infrastructure rules
     └── gtd/
         ├── .claude-plugin/
         │   └── plugin.json      # plugin manifest
