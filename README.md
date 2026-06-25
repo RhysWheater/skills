@@ -75,12 +75,6 @@ Language-specific coding patterns and idioms that linters cannot enforce — err
 - **`python-patterns`** (`/coding-style:python-patterns`) — Extensible ruleset for Python code patterns. Currently covers: signal failure with exceptions (not return values/None).
 - **`aws-patterns`** (`/coding-style:aws-patterns`) — Extensible ruleset for AWS infrastructure patterns. Currently covers: CloudWatch dimensions must add information (no redundant environment dimensions in single-env accounts).
 
-### `gtd`
-
-Skills for operating a personal, ADHD-aware org-mode GTD kanban board. Run from within the gtd directory.
-
-- **`review`** (`/gtd:review`) — Run the weekly board-review ceremony over the org-mode kanban, one question at a time with a recommended action each: reconcile in-flight projects against reality and sweep PARKED, check WIP and slow-burn-category starvation, promote on-deck work, nudge time-sensitive and forgotten items, batch trivial errands into startable projects, and capture new items. Encodes the *method* (and its ADHD rationale) — the task content and design rationale stay in the gtd directory's own `decisions.org` / `CONTEXT.org` / memory, which the skill reads live.
-
 ## Layout
 
 ```
@@ -106,18 +100,12 @@ skills/
     │       └── to-issues-with-org/
     │           ├── SKILL.md
     │           └── references/  # org primer + backlog format + decisions format
-    ├── coding-style/
-    │   ├── .claude-plugin/
-    │   │   └── plugin.json      # plugin manifest
-    │   └── skills/
-    │       ├── python-patterns/
-    │       │   └── SKILL.md     # extensible Python pattern rules
-    │       └── aws-patterns/
-    │           └── SKILL.md     # extensible AWS infrastructure rules
-    └── gtd/
+    └── coding-style/
         ├── .claude-plugin/
         │   └── plugin.json      # plugin manifest
         └── skills/
-            └── review/
-                └── SKILL.md     # the weekly board-review ceremony
+            ├── python-patterns/
+            │   └── SKILL.md     # extensible Python pattern rules
+            └── aws-patterns/
+                └── SKILL.md     # extensible AWS infrastructure rules
 ```
