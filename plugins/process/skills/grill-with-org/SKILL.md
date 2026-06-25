@@ -17,11 +17,11 @@ If a question can be answered by exploring the codebase, explore the codebase in
 
 This skill behaves exactly like a plan-grilling session, but its documentation artefacts are **Emacs Org-mode** files, not markdown. Org is a *data format*: headlines, property drawers, IDs, tags, and TODO keywords make the docs queryable (agenda, column view, sparse trees, `id:` links) rather than merely readable. Use that — don't just write markdown with `*` headings.
 
-The user is comfortable with org but learning. When you first use an org feature in a session, add a one-line `# ` comment in the file explaining it, and mention in chat what it unlocks (e.g. "press `C-c C-x C-c` on the top headline for the column view"). Teach by doing.
+The user is comfortable with org.
 
 For the exact file formats and the org features they use, follow the references — don't rely on memory:
 
-- [references/ORG-PRIMER.md](references/ORG-PRIMER.md) — the org features this skill relies on (property drawers, IDs, `id:` links, TODO keywords, tags, column view, agenda). **Consult when unsure how a feature works or how to teach it.**
+- [references/ORG-PRIMER.md](references/ORG-PRIMER.md) — the org features this skill relies on (property drawers, IDs, `id:` links, TODO keywords, tags, column view, agenda).
 - [references/CONTEXT-FORMAT.md](references/CONTEXT-FORMAT.md) — the glossary file (`CONTEXT.org`).
 - [references/DECISIONS-FORMAT.md](references/DECISIONS-FORMAT.md) — the decisions file (`decisions.org`), the org-native replacement for a `docs/adr/` directory.
 
@@ -90,20 +90,20 @@ Only offer to record a decision in `decisions.org` when all three are true:
 2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip it. Use the format in [references/DECISIONS-FORMAT.md](references/DECISIONS-FORMAT.md): a new headline with a `PROPOSED`/`ACCEPTED` TODO state, an `:ID:`, a `:DATE:` property, and context/topic tags.
+If any of the three is missing, skip it. Use the format in [references/DECISIONS-FORMAT.md](references/DECISIONS-FORMAT.md): a new headline with `TODO` state (unresolved) or `ACCEPTED` (settled), an `:ID:`, a `:DATE:` property, and context/topic tags.
 
 ### Emit open questions as TODO
 
 When the grill surfaces an unresolved question, blocker, or follow-up investigation, emit it immediately as a `* TODO` headline in `decisions.org` with:
 - `:ID:` prefixed `q-` (not `dec-`) — e.g. `q-prod-access`
 - `:DATE:` of today
-- Topic tags including `open-question`
+- Topic tags including `:open-question:`
 - `[[id:]]` link to the related decision
 
-These are work items, not decisions. They resolve to `DONE` (not `ACCEPTED`). Only promote to a `PROPOSED` decision if the question crystallises into a genuine architectural trade-off meeting the three-bar test.
+These are work items, not decisions. When resolved, either promote to a proper decision (with `dec-` ID and `ACCEPTED` state) if it meets the three-bar test, or simply delete the headline.
 
 ### Agenda note
 
-These files are designed for the project-local agenda (`SPC p a` or equivalent). `TODO` and `PROPOSED` headlines (left of `|`) appear as actionable items; `DONE`/`ACCEPTED`/`SUPERSEDED`/`REJECTED` are resolved and hidden. If your setup doesn't auto-discover repo org files, add them to `org-agenda-files`.
+These files are designed for the project-local agenda. `TODO` headlines (left of `|`) appear as actionable items; `ACCEPTED`/`DEPRECATED`/`SUPERSEDED` are resolved and hidden. All open items use a single `TODO` state — find them across the project with `grep -r "^\* TODO" .`.
 
 </supporting-info>

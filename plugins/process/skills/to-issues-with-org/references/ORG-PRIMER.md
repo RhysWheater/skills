@@ -1,6 +1,6 @@
 # Org-mode features this skill relies on
 
-This skill emits Org files that double as a queryable data model. This primer covers exactly the features the two file formats use, why each one matters, and how to teach it to a user who is comfortable-but-learning. Keep explanations to one line in-file (`# ` comment) and one line in chat.
+This skill emits Org files that double as a queryable data model. This primer covers exactly the features the two file formats use and why each one matters.
 
 ## Headlines and tags
 
@@ -61,7 +61,7 @@ Then link to it from anywhere — another task's `:BLOCKED:` property, a PRD, pr
 A headline can carry a TODO keyword right after the stars. Define the allowed sequence per-file:
 
 ```org
-#+TODO: TODO(t) IN-PROGRESS(i) | DONE(d) CANCELLED(c)
+#+TODO: TODO(t) | DONE(d) CANCELLED(c)
 ```
 
 Words before the `|` are "not done" (show as actionable); words after are "done". `C-c C-t` cycles them.
@@ -82,11 +82,6 @@ With the cursor on a headline, `C-c C-x C-c` opens the column view: every task r
 
 ## Agenda
 
-`org-agenda` aggregates TODO items across files listed in `org-agenda-files`. With the TODO keywords above, `TODO` tasks become agenda entries. Two things to tell the user once per repo:
+`org-agenda` aggregates TODO items across files listed in `org-agenda-files`. With the TODO keywords above, `TODO` tasks become agenda entries.
 
-- Add the file: `(add-to-list 'org-agenda-files "backlog.org")` (or a directory).
-- `#+CATEGORY:` at the top of a file labels its entries in the agenda (e.g. `#+CATEGORY: backlog`).
-
-## Putting it together
-
-The payoff: a reader (or a future agent) can `C-c C-x C-c` to see every task and its status as a table, `C-c C-o` to follow blocking links and jump to the parent PRD, and open their agenda to see all unblocked `TODO` items as actionable work — none of which a flat issue list can do. When you use a feature for the first time in a session, leave a one-line `# ` comment in the file and say one line in chat about what it unlocks.
+All open items use a single `TODO` state — find them across the project with `grep -r "^\* TODO" .`.

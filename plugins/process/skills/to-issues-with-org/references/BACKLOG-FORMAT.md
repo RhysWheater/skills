@@ -1,6 +1,6 @@
 # backlog.org format
 
-All work items for a project live as top-level headlines in one file. Org's column view gives a dashboard of every task and its status; the agenda surfaces those still `TODO` or `IN-PROGRESS`. See [ORG-PRIMER.md](ORG-PRIMER.md) for any feature below.
+All work items for a project live as top-level headlines in one file. Org's column view gives a dashboard of every task and its status; the agenda surfaces those still `TODO`. See [ORG-PRIMER.md](ORG-PRIMER.md) for any feature below.
 
 ## Why one file
 
@@ -14,14 +14,12 @@ Same reasoning as decisions.org and prd.org — one file lets column view aggreg
 #+CATEGORY: backlog
 #+FILETAGS: :backlog:
 # Keywords: left of | = active (visible in agenda), right = resolved (hidden).
-#+TODO: TODO(t) IN-PROGRESS(i) | DONE(d) CANCELLED(c)
-# Column view: C-c C-x C-c on a headline for the table; q to exit.
+#+TODO: TODO(t) | DONE(d) CANCELLED(c)
 #+COLUMNS: %40ITEM(Task) %TODO(Status) %TAGS %MODEL(Model) %BUDGET(Budget) %BLOCKED(Blocked by)
 #+STARTUP: overview
 ```
 
-- `TODO` — not started.
-- `IN-PROGRESS` — actively being worked on.
+- `TODO` — open (not yet complete).
 - `DONE` — complete.
 - `CANCELLED` — dropped.
 
@@ -45,7 +43,7 @@ Same reasoning as decisions.org and prd.org — one file lets column view aggreg
 
 ## Fields
 
-- **TODO state** — `TODO` → `IN-PROGRESS` → `DONE` / `CANCELLED`. Only `TODO` and `IN-PROGRESS` appear in the agenda.
+- **TODO state** — `TODO` → `DONE` / `CANCELLED`. Only `TODO` appears in the agenda.
 - **`:ID:`** — stable, human-readable, prefixed `task-` (e.g. `task-setup-event-bus`). Lets other tasks reference it in `:BLOCKED:`.
 - **`:BLOCKED:`** — `[[id:task-other]]` link(s) to blocking tasks. Empty string if no blockers. Multiple blockers separated by space: `[[id:task-a]] [[id:task-b]]`.
 - **`:PRD:`** — `[[id:prd-slug]]` link back to the parent PRD in `prd.org`. Omit if the work item came from conversation context rather than a PRD.

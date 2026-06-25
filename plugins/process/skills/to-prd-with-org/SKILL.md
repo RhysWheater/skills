@@ -41,7 +41,7 @@ Wait for confirmation before proceeding.
 Write the PRD to `prd.org` using the format in [references/PRD-FORMAT.md](references/PRD-FORMAT.md).
 
 Key rules:
-- Start the PRD in `DRAFT` state — the user flips to `READY` when satisfied.
+- Start the PRD in `TODO` state — the user flips to `APPROVED` when satisfied.
 - If `prd.org` doesn't exist, create it with the full file header (TODO keywords, column view, etc.).
 - If it already exists, append the new PRD as a new top-level headline.
 - Link glossary terms with `[[id:term-slug][Term]]` for any term that exists in `CONTEXT.org`. Don't create new glossary entries.
@@ -49,9 +49,3 @@ Key rules:
 - User stories should be extensive — cover all aspects of the feature.
 - No file paths or code snippets in Problem/Solution/User Stories.
 
-### 4. Teach org features
-
-When you use an org feature for the first time in the session, add a one-line `# ` comment in the file explaining it, and mention in chat what it unlocks. Examples:
-- Column view: "press `C-c C-x C-c` on the top headline for a dashboard of all PRDs"
-- TODO cycling: "`C-c C-t` to move from DRAFT → READY when you're satisfied"
-- Agenda: "add `prd.org` to `org-agenda-files` to see DRAFT PRDs as actionable items"

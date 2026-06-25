@@ -1,6 +1,6 @@
 # prd.org format
 
-All PRDs for a project live as top-level headlines in one file. Org's column view gives a dashboard of every PRD and its status; the agenda surfaces those still in `DRAFT` or `READY`. See [ORG-PRIMER.md](ORG-PRIMER.md) for any feature below.
+All PRDs for a project live as top-level headlines in one file. Org's column view gives a dashboard of every PRD and its status; the agenda surfaces those still `TODO`. See [ORG-PRIMER.md](ORG-PRIMER.md) for any feature below.
 
 ## Why one file
 
@@ -13,22 +13,20 @@ Same reasoning as decisions.org — one file lets column view aggregate all PRDs
 #+TITLE: PRDs
 #+CATEGORY: prd
 #+FILETAGS: :prd:
-# Keywords: left of | = active (visible in agenda), right = resolved (hidden).
-#+TODO: DRAFT(d) READY(r) | DONE(n) CANCELLED(c)
-# Column view: C-c C-x C-c on a headline for the table; q to exit.
+# Keywords: left of | = open (visible in agenda), right = resolved (hidden).
+#+TODO: TODO(t) | APPROVED(a) CANCELLED(c)
 #+COLUMNS: %40ITEM(PRD) %TODO(Status) %DATE %TAGS
 #+STARTUP: overview
 ```
 
-- `DRAFT` — written, awaiting user review/approval.
-- `READY` — approved, work can begin (equivalent to `ready-for-agent` label in issue trackers).
-- `DONE` — all work items completed.
+- `TODO` — open (being drafted or awaiting approval).
+- `APPROVED` — approved, work can begin.
 - `CANCELLED` — abandoned.
 
 ## A PRD
 
 ```org
-* DRAFT Order pipeline  :ordering:
+* TODO Order pipeline  :ordering:
   :PROPERTIES:
   :ID:    prd-order-pipeline
   :DATE:  [2026-06-11]
@@ -80,7 +78,7 @@ All sub-headlines are optional — include only those with content:
 - **`:ID:` prefix is `prd-`** — e.g. `prd-order-pipeline`. Stable, human-readable, greppable.
 - **`:DATE:`** — inactive timestamp of when the PRD was created.
 - **Tags** — owning context (`:ordering:`) and optionally topic tags.
-- **Start as `DRAFT`**. The user flips to `READY` when satisfied (`C-c C-t`).
+- **Start as `TODO`**. The user flips to `APPROVED` when satisfied.
 
 ## Single vs multi-context repos
 

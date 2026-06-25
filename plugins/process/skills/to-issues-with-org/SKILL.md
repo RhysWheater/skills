@@ -88,10 +88,3 @@ Key rules:
 - Set `:PRD:` to `[[id:prd-slug]]` if a parent PRD exists.
 - Write all items at once after approval (not incrementally) so the dependency graph is coherent.
 
-### 6. Teach org features
-
-When you use an org feature for the first time in the session, add a one-line `# ` comment in the file and mention in chat what it unlocks:
-- Column view: "press `C-c C-x C-c` on the top headline for a dashboard of all tasks"
-- Blocked-by links: "`C-c C-o` on a `:BLOCKED:` link jumps to the blocking task"
-- Agenda filtering: "in agenda view, `/` then type `afk` to see only agent-doable tasks"
-- TODO cycling: "`C-c C-t` to move a task through TODO → IN-PROGRESS → DONE"
