@@ -1,6 +1,6 @@
 ---
 name: python-patterns
-description: Python coding patterns and idioms for this project. Covers error handling, control flow, and API design conventions that linters cannot enforce. Use when writing or reviewing Python code, generating Python functions, or refactoring Python modules.
+description: "Python coding patterns and idioms for this project. Covers error handling, control flow, and API design conventions that linters cannot enforce. Use when writing or reviewing Python code, generating Python functions, or refactoring Python modules."
 ---
 
 # Python Patterns

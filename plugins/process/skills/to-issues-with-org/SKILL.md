@@ -1,6 +1,6 @@
 ---
 name: to-issues-with-org
-description: Break a plan, spec, or PRD into independently-grabbable work items in backlog.org using tracer-bullet vertical slices with TODO lifecycle, id-link dependencies, and agenda integration. Use when user wants to convert a plan into tasks and prefers org-mode output, mentions backlog.org, or the project already uses org files for planning.
+description: "Break a plan, spec, or PRD into independently-grabbable work items in backlog.org using tracer-bullet vertical slices with TODO lifecycle, id-link dependencies, and agenda integration. Use when user wants to convert a plan into tasks and prefers org-mode output, mentions backlog.org, or the project already uses org files for planning."
 ---
 
 # To Issues (Org)

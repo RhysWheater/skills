@@ -1,6 +1,6 @@
 ---
 name: to-prd-with-org
-description: Turn the current conversation context into a PRD and write it to prd.org as a structured Org-mode document with TODO lifecycle, id links, and agenda integration. Use when user wants to create a PRD and prefers org-mode output, mentions prd.org, or the project already uses org files for planning.
+description: "Turn the current conversation context into a PRD and write it to prd.org as a structured Org-mode document with TODO lifecycle, id links, and agenda integration. Use when user wants to create a PRD and prefers org-mode output, mentions prd.org, or the project already uses org files for planning."
 ---
 
 This skill takes the current conversation context and codebase understanding and produces a PRD as a structured Org-mode file. Do NOT interview the user — just synthesize what you already know (use `grill-with-org` first if the plan needs stress-testing).

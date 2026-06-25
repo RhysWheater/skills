@@ -1,6 +1,6 @@
 ---
 name: aws-patterns
-description: AWS coding patterns and idioms for this project. Covers CloudWatch metrics, dimensions, and observability conventions that linters cannot enforce. Use when writing or reviewing AWS infrastructure code, creating CloudWatch metrics, or working with CDK/Terraform/CloudFormation that involves metrics or alarms.
+description: "AWS coding patterns and idioms for this project. Covers CloudWatch metrics, dimensions, and observability conventions that linters cannot enforce. Use when writing or reviewing AWS infrastructure code, creating CloudWatch metrics, or working with CDK/Terraform/CloudFormation that involves metrics or alarms."
 ---
 
 # AWS Patterns

@@ -1,6 +1,6 @@
 ---
 name: grill-with-org
-description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates living documentation inline as decisions crystallise — emitting Emacs Org-mode files (CONTEXT.org, decisions.org) instead of markdown. Treats docs as a queryable data model: headlines carry IDs, property drawers, tags and TODO/agenda state, so the glossary becomes a navigable graph and decisions become a column-view table. Use when the user wants to stress-test a plan against their project's language and documented decisions and prefers Org-mode output, or mentions org-mode, org files, org-agenda, or column view.
+description: "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates living documentation inline as decisions crystallise — emitting Emacs Org-mode files (CONTEXT.org, decisions.org) instead of markdown. Treats docs as a queryable data model: headlines carry IDs, property drawers, tags and TODO/agenda state, so the glossary becomes a navigable graph and decisions become a column-view table. Use when the user wants to stress-test a plan against their project's language and documented decisions and prefers Org-mode output, or mentions org-mode, org files, org-agenda, or column view."
 ---
 
 <what-to-do>
