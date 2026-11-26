@@ -67,6 +67,7 @@ Skills about *how to work* — planning, domain modelling, and method. Derived f
 - **`to-prd-with-org`** (`/process:to-prd-with-org`) — Synthesize conversation context into a structured PRD in `prd.org` with TODO lifecycle (`DRAFT` → `READY` → `DONE`), `id:` links to glossary and decisions, column-view dashboard, and agenda integration.
 - **`to-issues-with-org`** (`/process:to-issues-with-org`) — Break a plan or PRD into independently-grabbable vertical-slice work items in `backlog.org` with TODO states, `id:`-linked dependency graph, `:hitl:`/`:afk:` tags, and a quiz loop before writing.
 - **`codeit`** (`/process:codeit`) — Reference for building from Matt Pocock's planning artifacts (`GLOSSARY.md`, ADRs, spec, tickets with blocking edges) when another skill such as `/poteto-mode` drives implementation. Covers frontier-only ticket work, glossary/ADR discipline, spec-conformance review, and passing its path to subagents. Use: `/poteto-mode <task>; load codeit first`.
+- **`walkthrough`** (`/process:walkthrough`) — Run weekly architecture walkthroughs of microservice repos to build a mental model. Claude investigates and draws diagrams (dot/PlantUML, PNG) and reviews; the user writes the prose. Review sorts claims into Errors/Nuances/Gaps, labels verified vs inferred, and leaves open questions in the org file.
 
 ### `coding-style`
 
@@ -100,8 +101,10 @@ skills/
     │       │   ├── SKILL.md
     │       │   ├── LICENSE
     │       │   └── references/  # org primer + backlog format + decisions format
-    │       └── codeit/
-    │           └── SKILL.md     # build-from-Matt-artifacts reference
+    │       ├── codeit/
+    │       │   └── SKILL.md     # build-from-Matt-artifacts reference
+    │       └── walkthrough/
+    │           └── SKILL.md     # weekly architecture walkthrough workflow
     └── coding-style/
         ├── .claude-plugin/
         │   └── plugin.json      # plugin manifest
