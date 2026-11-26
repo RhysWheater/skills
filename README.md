@@ -66,6 +66,7 @@ Skills about *how to work* — planning, domain modelling, and method. Derived f
 - **`grill-with-org`** (`/process:grill-with-org`) — Stress-test a plan against your project's language and documented decisions, one question at a time, capturing the results as **Emacs Org-mode** living documentation (`CONTEXT.org`, `decisions.org`). Treats docs as a queryable data model — headlines carry IDs, property drawers, tags and TODO/agenda state — so the glossary becomes a navigable graph and decisions become a column-view table.
 - **`to-prd-with-org`** (`/process:to-prd-with-org`) — Synthesize conversation context into a structured PRD in `prd.org` with TODO lifecycle (`DRAFT` → `READY` → `DONE`), `id:` links to glossary and decisions, column-view dashboard, and agenda integration.
 - **`to-issues-with-org`** (`/process:to-issues-with-org`) — Break a plan or PRD into independently-grabbable vertical-slice work items in `backlog.org` with TODO states, `id:`-linked dependency graph, `:hitl:`/`:afk:` tags, and a quiz loop before writing.
+- **`codeit`** (`/process:codeit`) — Reference for building from Matt Pocock's planning artifacts (`GLOSSARY.md`, ADRs, spec, tickets with blocking edges) when another skill such as `/poteto-mode` drives implementation. Covers frontier-only ticket work, glossary/ADR discipline, spec-conformance review, and passing its path to subagents. Use: `/poteto-mode <task>; load codeit first`.
 
 ### `coding-style`
 
@@ -95,10 +96,12 @@ skills/
     │       │   ├── SKILL.md
     │       │   ├── LICENSE
     │       │   └── references/  # org primer + PRD format + decisions format
-    │       └── to-issues-with-org/
-    │           ├── SKILL.md
-    │           ├── LICENSE
-    │           └── references/  # org primer + backlog format + decisions format
+    │       ├── to-issues-with-org/
+    │       │   ├── SKILL.md
+    │       │   ├── LICENSE
+    │       │   └── references/  # org primer + backlog format + decisions format
+    │       └── codeit/
+    │           └── SKILL.md     # build-from-Matt-artifacts reference
     └── coding-style/
         ├── .claude-plugin/
         │   └── plugin.json      # plugin manifest
